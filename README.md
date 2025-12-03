@@ -76,35 +76,32 @@ Snip & Style Beauty Salon Appointment System is a console application based on J
 5.Exit
 ## ‧₊˚ ┊ Object-oriented Principles
 ### 🧩 Abstraction
-The abstract class **Service** hides complexity by providing common attributes (name, price, duration).  
-It also requires subclasses to define their own `getDescription()` method, ensuring consistency and cleaner code.
+The system defines all salon services with an abstract class called Service.
+This class has mainly the key properties, such as the service name, price, and duration, as well as the abstract method **getDescription()** that every service must define.
+This keeps the system neat and makes it easier for the program to treat all services equally.
+
 
 ---
 
 ### 🧬 Inheritance
-`HaircutService`, `NailService`, and `SpaService` inherit from the `Service` class.  
-They reuse shared attributes while implementing their own unique behaviors.  
-This reduces repetition and makes the system easy to expand.
+`The classes for **HaircutService**, **NailService**, and **SpaService** are derive from the abstract Service class.They reuse basic variables and behaviors from **Service**, avoiding the need to rewrite common code. Each subclass only includes what is specific to that service, such as its own description.
+This simplifies system maintenance and expansion when new services are added.
+
 
 ---
 
 ### 🎭 Polymorphism
-Each service subclass overrides the `getDescription()` method.  
-The system can treat all service types as `Service` objects but still invoke the correct version at runtime.
-
-This allows the same method call to produce different outputs depending on the selected service.
+The **getDescription()** method of the abstract class is overridden by each service type.
+This means that depending on the service used, a single method name can produce a variety of results.The **chooseService()** method returns a Service object, which might be a haircut, nail care, or spa service. This allows distinct services to perform independently while remaining controlled by a common interface.
 
 ---
 
 ### 🔒 Encapsulation
-The `Appointment` class stores its fields privately:
-- customer name  
-- date  
-- time  
-- service selected  
+The **Appointment** class protects its information by keeping customer names, dates, times, and services in private variables.
+These can only be seen or changed using getter and setter methods, which helps manage and protect the data.
+This ensures that appointment information remains constant and prevents unintended changes.
+The encapsulation technique prevents undesirable alterations and preserves the system's structure.
 
-These can only be accessed through setters and getters.  
-This ensures protection and avoids accidental data modification.
 
 ## ‧₊˚ ┊ Example Output
 ```
